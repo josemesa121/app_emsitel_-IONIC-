@@ -1,0 +1,15 @@
+ion-content ion-toolbar {
+    --background: translucent;
+}
+
+#container {
+    padding-top: 10px;
+}
+
+
+@media (max-width:359px){
+    .my_input {
+        height: 50px;
+        margin-bottom: 3px;
+    }
+}

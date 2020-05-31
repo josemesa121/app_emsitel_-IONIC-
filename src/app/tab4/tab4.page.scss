@@ -1,0 +1,42 @@
+// ion-input {
+//     border-radius: 10px !important;
+//     padding-right: 30px;
+//     font-size: 0.9em;
+//     border: 1px solid black !important;
+//     --background: rgb(255, 255, 255) !important;
+//     /* height: 10%; */
+//     /* width: 41%; */
+//     max-width: 570vw; // this is applying perfectly
+//     max-height: 10vh;
+// }
+#saldo {
+    height: 50px;
+    background-color: #929497;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: larger;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+div p {
+    padding-top: 13px;
+}
+
+@media (max-height:625px){
+    .my_log{
+        margin-top: 0px;
+        margin-bottom: 2px;
+        height: 50px;
+    }
+
+    .my_button{
+        margin: 2px 0 2px 0;
+    }
+
+    .my_input {
+        height: 54px;
+        margin-bottom: 2px;
+    }
+
+}

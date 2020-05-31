@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="my_header">
+        <ion-title>
+            Registrarme
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center" size="10" offset="1" sizeMd="4" offsetMd="4">
+                <ion-img class="my_log" src="../assets/logo2.png"></ion-img>
+                <form [formGroup]="myForm" (ngSubmit)="registro(myForm)">
+                    <ion-item class="my_input">
+                        <ion-label position="floating">Nombre:*</ion-label>
+                        <ion-input placeholder="Ingrese su nombre" [(ngModel)]="usuario.name" name="name" type="text" formControlName="name" class="form-control" required>
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-item class="my_input">
+                        <ion-label position="floating">Telefono:*</ion-label>
+                        <ion-input mask="(000) 000-0000" type="tel" maxlength="14" placeholder="Ingrese su # Teléfonico" [(ngModel)]="usuario.phone" name="phone" formControlName="phone" class="form-control" required>
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-item class="my_input">
+                        <ion-label position="floating">Email:*</ion-label>
+                        <ion-input placeholder="Ingrese su correo eléctronico" type="email" [(ngModel)]="usuario.email" name="email" type="email" formControlName="email" class="form-control" required>
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-button type="submit" class="my_button" [disabled]="myForm.invalid">REGISTRAR</ion-button>
+                    <p>
+                        <a class="my_link" href='/login'>Iniciar sesión</a>
+                    </p>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
+
+<ion-footer class="ion-no-border ion-text-center ion-padding-bottom">
+    <p class="my_copy">Todos los derechos reservados, </p>
+    <p class="my_copy">© Emsitel 2020</p>
+</ion-footer>

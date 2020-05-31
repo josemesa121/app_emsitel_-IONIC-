@@ -1,0 +1,14 @@
+// ion-input {
+//     border-radius: 10px !important;
+//     padding-right: 30px;
+//     font-size: 0.9em;
+//     border: 1px solid black !important;
+//     --background: rgb(255, 255, 255) !important;
+//     /* height: 10%; */
+//     /* width: 41%; */
+//     max-width: 570vw; // this is applying perfectly
+//     max-height: 10vh;
+// }
+ion-content ion-toolbar {
+    --background: translucent;
+}

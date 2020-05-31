@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="my_header">
+        <ion-title>
+            Historial de llamadas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" sizeMd="6" offsetMd="3">
+
+                <ion-list *ngFor="let item of datHistory">
+
+                    <ion-item lines="none">
+                        <ion-col size="3">
+                            <ion-avatar>
+                                <ion-img class="use_image" src="../assets/contacto.png"></ion-img>
+                            </ion-avatar>
+                        </ion-col>
+
+                        <ion-col size="9" class="" (click)="checkCallPermission(item.destination)">
+                            <p class="title_call">{{item.destination}} <span class="ion-float-right date-call">{{item.created_at}}</span></p>
+                            <p class="description_call" *ngIf="item.sale > 0">
+                                <ion-icon class="success_text" name="redo" color="success"></ion-icon> Duración de la llamada {{item.duration}} min</p>
+                            <p class="description_call" *ngIf="item.sale == 0">
+                                <ion-icon class="success_text" name="undo" color="danger"></ion-icon> Duración de la llamada {{item.duration}} min</p>
+                        </ion-col>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

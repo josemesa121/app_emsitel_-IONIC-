@@ -1,0 +1,7 @@
+{
+  "name": "emsitel",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

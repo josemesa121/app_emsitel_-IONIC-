@@ -1,0 +1,505 @@
+#saldo {
+    background-color: #ECEBED;
+    padding-left: 20px;
+}
+
+#dialTextBox {
+    font-size: 38px;
+}
+
+#dialTextBox2 {
+    font-size: 30px;
+}
+
+#saldo p {
+    margin: 10px 0 5px 0;
+}
+
+ion-input {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#call_button {
+    --background: #00A550;
+    --border-radius: 50px;
+    width: 68px;
+    height: 68px;
+}
+
+#call_button ion-icon {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#backspace_button {
+    margin-top: 12px;
+    color: #8E8E8F;
+    font-size: 20px;
+}
+
+.number_button div {
+    display: block;
+    color: #8E8E8F;
+    font-size: 10px;
+}
+
+.number_button label {
+    display: block;
+    color: #57585A;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+ion-row ion-col {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#call_row {
+    margin-top: 3px;
+}
+
+.text-llamando {
+    font-size: 18px;
+}
+
+.activeCall {
+    #call_button {
+        --background: #ffffff;
+        --border-radius: 50px;
+        width: 68px;
+        height: 68px;
+    }
+    #call_button ion-icon {
+        color: red;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    &.bg {
+        --background: linear-gradient(90deg, rgba(92, 114, 129, 1) 0%, rgba(88, 140, 107, 1) 13.5%, rgba(83, 168, 83, 1) 33.33%, rgba(82, 180, 74, 1) 100%) !important;
+    }
+    ion-col {
+        color: #ffffff;
+        font-size: 10px;
+    }
+    ion-row ion-col ion-icon {
+        display: block;
+        margin: auto;
+        font-size: 25px;
+    }
+    ion-avatar {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+    .number_button div {
+        display: block;
+        color: #ffffff;
+        font-size: 25px;
+    }
+    .number_button label {
+        display: block;
+        color: #ffffff;
+        font-size: 6px;
+        font-weight: bold;
+    }
+}
+
+.activetmf {
+    #dialed-n {
+        font-size: 30px;
+    }
+    .number_button {
+        height: 70px!important;
+        width: 70px;
+        border-color: red!important;
+        opacity: 0.5;
+    }
+    #saldo {
+        background-color: #ECEBED;
+        padding-left: 20px;
+    }
+    #saldo p {
+        margin: 10px 0 5px 0;
+    }
+    ion-input {
+        font-weight: bold;
+        font-size: 22px;
+    }
+    #call_button {
+        --background: #ffffff;
+        --border-radius: 50px;
+        width: 68px;
+        height: 68px;
+        opacity: 0.8;
+    }
+    #call_button ion-icon {
+        color: red;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    #backspace_button {
+        margin-top: 10px;
+        margin-bottom: 5;
+        color: white;
+    }
+    .number_button div {
+        display: block;
+        color: white;
+        font-size: 10px;
+    }
+    .number_button label {
+        display: block;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+    }
+    ion-row ion-col {
+        padding-bottom: 30px;
+        padding-top: 10px;
+    }
+    #call_row {
+        margin-top: 3px;
+    }
+    &.bg {
+        --background: linear-gradient(90deg, rgba(92, 114, 129, 1) 0%, rgba(88, 140, 107, 1) 13.5%, rgba(83, 168, 83, 1) 33.33%, rgba(82, 180, 74, 1) 100%) !important;
+    }
+}
+
+@media (max-height:550px) {
+    ion-row ion-col {
+        padding-bottom: 3px;
+        padding-top: 3px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 1px;
+            padding-top: 1px;
+        }
+    }
+}
+
+@media (min-height:551px) {
+    ion-row ion-col {
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 4px;
+            padding-top: 4px;
+        }
+        .number_button label {
+            display: block;
+            font-size: 32px;
+            font-weight: bold;
+        }
+    }
+}
+
+@media (min-height:570px) {
+    ion-row ion-col {
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+    }
+}
+
+@media (min-height:580px) {
+    ion-row ion-col {
+        padding-bottom: 8px;
+        padding-top: 8px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 6px;
+            padding-top: 6px;
+        }
+    }
+}
+
+@media (min-height:590px) {
+    ion-row ion-col {
+        padding-bottom: 9px;
+        padding-top: 9px;
+    }
+}
+
+@media (min-height:600px) {
+    ion-row ion-col {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .number_button div {
+        display: block;
+        color: #8E8E8F;
+        font-size: 10px;
+    }
+    .number_button label {
+        display: block;
+        color: #57585A;
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .number_button {
+        height: 65px!important;
+        width: 65px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 7px;
+            padding-top: 7px;
+        }
+    }
+}
+
+@media (min-height:615px) {
+    ion-row ion-col {
+        padding-bottom: 1px;
+        padding-top: 1px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 8px;
+            padding-top: 8px;
+        }
+    }
+}
+
+@media (min-height:635px) {
+    ion-row ion-col {
+        padding-bottom: 2px;
+        padding-top: 2px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 9px;
+            padding-top: 9px;
+        }
+        #teclado-tmf {
+            margin-top: 10px;
+        }
+        #dialed-n {
+            margin-top: 25px;
+        }
+    }
+}
+
+@media (min-height:645px) {
+    ion-row ion-col {
+        padding-bottom: 3px;
+        padding-top: 3px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+    }
+}
+
+@media (min-height:655px) {
+    ion-row ion-col {
+        padding-bottom: 4px;
+        padding-top: 4px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 11px;
+            padding-top: 11px;
+        }
+    }
+    .number_button div {
+        display: block;
+        color: #8E8E8F;
+        font-size: 10px;
+    }
+    .number_button label {
+        display: block;
+        color: #57585A;
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+@media (min-height:665px) {
+    ion-row ion-col {
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 12px;
+            padding-top: 12px;
+        }
+    }
+}
+
+@media (min-height:675px) {
+    ion-row ion-col {
+        padding-bottom: 6px;
+        padding-top: 6px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 13px;
+            padding-top: 13px;
+        }
+        #teclado-tmf {
+            margin-top: 10px;
+        }
+        #dialed-n {
+            margin-top: 25px;
+        }
+    }
+}
+
+@media (min-height:685px) {
+    ion-row ion-col {
+        padding-bottom: 7px;
+        padding-top: 7px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 14px;
+            padding-top: 14px;
+        }
+    }
+}
+
+@media (min-height:700px) {
+    ion-row ion-col {
+        padding-bottom: 8px;
+        padding-top: 8px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+    }
+}
+
+@media (min-height:710px) {
+    ion-row ion-col {
+        padding-bottom: 9px;
+        padding-top: 9px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 16px;
+            padding-top: 16px;
+        }
+    }
+}
+
+@media (min-height:725px) {
+    ion-row ion-col {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 17px;
+            padding-top: 17px;
+        }
+    }
+}
+
+@media (min-height:735px) {
+    ion-row ion-col {
+        padding-bottom: 11px;
+        padding-top: 11px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 18px;
+            padding-top: 18px;
+        }
+    }
+}
+
+@media (min-height:745px) {
+    ion-row ion-col {
+        padding-bottom: 12px;
+        padding-top: 12px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 19px;
+            padding-top: 19px;
+        }
+    }
+}
+
+@media (min-height:760px) {
+    ion-row ion-col {
+        padding-bottom: 13px;
+        padding-top: 13px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+    }
+}
+
+@media (min-height:780px) {
+    ion-row ion-col {
+        padding-bottom: 14px;
+        padding-top: 14px;
+    }
+}
+
+@media (min-height:795px) {
+    ion-row ion-col {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+    }
+}
+
+@media (min-height:810px) {
+    ion-row ion-col {
+        padding-bottom: 9px;
+        padding-top: 9px;
+    }
+    #teclado-normal {
+        margin-top: 50px;
+    }
+    .activetmf {
+        ion-row ion-col {
+            padding-bottom: 14px;
+            padding-top: 14px;
+        }
+        #teclado-tmf {
+            margin-top: 20px;
+        }
+        #dialed-n {
+            margin-top: 90px;
+        }
+    }
+}
+
+.my-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.90);
+    z-index: 2147483647;
+    top: 0;
+    left: 0;
+}

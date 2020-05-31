@@ -1,0 +1,21 @@
+.button-rounded {
+    display: block !important;
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    border: 2px solid white !important;
+    border-radius: 50% !important;
+    color: white !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    font-size: 10px !important;
+    font-weight: bold !important;
+}
+
+.bar .buttons .button.button-icon .icon::before,
+.bar .buttons .button.button-icon::before,
+.bar .buttons .button.button-icon.icon-left::before,
+.bar .buttons .button.button-icon.icon-right::before {
+    font-size: 24px;
+    line-height: 24px;
+}

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="my_header">
+        <ion-title>
+            Perfil
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-icon slot="icon-only" name="log-out" (click)="logout()">Salir</ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center" size="10" sizeMd="4" offset="1" offsetMd="4">
+                <ion-img class="my_log" src="../assets/logo2.png"></ion-img>
+                <form #form="ngForm" (ngSubmit)="getupProfile()">
+                    <ion-item class="my_input">
+                        <ion-label position="floating">Nombre:</ion-label>
+                        <ion-input [(ngModel)]="datUsuarios.name" name="name" placeholder="Ingrese su nombre"></ion-input>
+                    </ion-item>
+                    <ion-item class="my_input">
+                        <ion-label position="floating">Teléfono:</ion-label>
+                        <ion-input disabled=true mask="(000) 000-0000" type="text" maxlength="14" [ngModel]="datUsuarios.phone" name="phone" placeholder="Ingrese su # Teléfonico"></ion-input>
+                    </ion-item>
+                    <ion-item class="my_input">
+                        <ion-label position="floating">Email:</ion-label>
+                        <ion-input [(ngModel)]="datUsuarios.email" name="email" placeholder="Ingrese su correo eléctronico"></ion-input>
+                    </ion-item>
+                    <div id="saldo">
+                        <p>Saldo: ${{datCredit }} COP.</p>
+                    </div>
+
+                    <ion-button type="submit" class="my_button">
+                        <ion-icon slot="end" name="arrow-forward" mode="ios">
+                        </ion-icon>
+                        GUARDAR</ion-button>
+
+                    <p class="my_copy">Todos los derechos reservados, </p>
+                    <p class="my_copy">© Emsitel 2020</p>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

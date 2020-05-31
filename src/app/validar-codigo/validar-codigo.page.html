@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="my_header">
+        <ion-title>
+            Verificación SMS
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center" size="12" sizeMd="4" offsetMd="4">
+                <ion-img class="my_logo" src="../assets/logo1.png"></ion-img>
+                <p class="text-secondary">Escribe el código de verificación enviado por SMS a {{argumento | mask: '(000) 000-0000'}}</p>
+                <form #form="ngForm" (ngSubmit)="valdarsms(form)">
+                    <ion-input [(ngModel)]="registro.code" name="code" type="number" class="my_input" placeholder="Digita el codigo de 6 digitos"></ion-input>
+                    <ion-row>
+                        <ion-col size="6">
+                            <ion-button class="my_button_secondary" (click)="loginss()">
+                                <ion-icon slot="start" name="arrow-back" mode="ios">
+                                </ion-icon>REGRESAR
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="6">
+                            <ion-button type="submit" class="my_button_secon">
+                                <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+                                INGRESAR
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border ion-text-center ion-padding-bottom">
+    <p class="my_copy">Todos los derechos reservados, </p>
+    <p class="my_copy">© Emsitel 2020</p>
+</ion-footer>

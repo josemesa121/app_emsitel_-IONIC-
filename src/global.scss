@@ -1,0 +1,115 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+.my_header {
+    --background: #8CB831;
+    color: #ffffff;
+}
+
+.my_input {
+    --border-color: transparent!important;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+ion-item ion-label {
+    font-weight: bold;
+}
+
+.my_button {
+    --background: #0F529E;
+    --border-radius: 10px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.my_button2 {
+    --background: #0F529E;
+    --border-radius: 10px;
+    margin-bottom: 20px;
+    width: 70%;
+}
+
+.my_button_secon {
+    --background: #0F529E;
+    --border-radius: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.my_button_secondary {
+    --background: #A54686;
+    --border-radius: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.my_link {
+    color: #0F529E;
+    font-weight: bold;
+    text-decoration-line: underline;
+    margin: 10px 0 40px 0;
+}
+
+.my_logo {
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.my_log {
+    width: 100%;
+    margin: auto;
+    margin-top: 12px;
+    margin-bottom: 17px;
+}
+
+.my_copy {
+    color: #8E8F92;
+    font-weight: bold;
+    margin: 0;
+    font-size: 13px;
+}
+
+.text-primary {
+    color: #0F529E;
+    font-weight: bold;
+}
+
+.text-secondary {
+    color: #8E8F92;
+    font-weight: bold;
+}
+
+.ico {
+    height: 27px;
+}

@@ -1,0 +1,328 @@
+<div class="my-overlay" padding [hidden]="!showingCallBg"></div>
+<ion-header *ngIf="!activeCall">
+    <ion-toolbar class="my_header">
+        <ion-title>
+            Llamar
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="!activeCall">
+    <div id="saldo" class="ion-text-start">
+        <p>{{datUsuarios.name}}. Saldo: ${{datCredit}}</p>
+    </div>
+
+    <ion-grid>
+        <ion-row>
+
+            <ion-col class="ion-text-center" size="10" sizeMd="4" offset="1" offsetMd="4">
+                <ion-input *ngIf="PhoneType==='celular'" type="text" mask='(000) 000-0000' (keyup)="revisarMascara()" [patterns]="customPatterns" [dropSpecialCharacters]="false" [ngModel]="dialedNumber" id="dialTextBox"></ion-input>
+                <ion-input *ngIf="PhoneType==='local'" type="text" mask='(000) 0000' (keyup)="revisarMascara()" [patterns]="customPatterns" [dropSpecialCharacters]="false" [ngModel]="dialedNumber" id="dialTextBox"></ion-input>
+                <ion-input *ngIf="PhoneType==='internacional'" type="text" (keyup)="revisarMascara()" [ngModel]="dialedNumber" id="dialTextBox2"></ion-input>
+                <ion-row id="teclado-normal">
+                    <ion-col size="4">
+
+                        <ion-button fill="clear" class="number_button" (click)="dial(1)">
+                            <div>
+                                <label>1</label>
+                                <ion-icon name="recording"></ion-icon>
+                            </div>
+                        </ion-button>
+
+                    </ion-col>
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(2)">
+                            <div>
+                                <label>2</label> ABC
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(3)">
+                            <div>
+                                <label>3</label> DEF
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(4)">
+                            <div>
+                                <label>4</label> GHI
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(5)">
+                            <div>
+                                <label>5</label> JKL
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(6)">
+                            <div>
+                                <label>6</label> MNO
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(7)">
+                            <div>
+                                <label>7</label> PQRS
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(8)">
+                            <div>
+                                <label>8</label> TUV
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(9)">
+                            <div>
+                                <label>9</label> WXYZ
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial('*')">
+                            <div>
+                                <label>*</label>
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial(0)" (press)="dialmore($event)">
+                            <div>
+                                <label>0</label> +
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" class="number_button" (click)="dial('#')">
+                            <div>
+                                <label>#</label>
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row id="call_row">
+                    <ion-col size="4" offset="4">
+                        <ion-button id="call_button" (click)="makeCall()">
+                            <ion-icon name="call"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="clear" id=backspace_button (press)=press($event) (click)="delete()">
+                            <ion-icon slot="icon-only" name="backspace"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+
+<ion-content class="bg activeCall" *ngIf="activeCall && !activeTmf" [fullscreen]="true">
+
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center" size="10" offset="1">
+
+                <p class="text-llamando">Llamando...</p>
+                <!-- "PhoneType=='celular' ? '(000) 000-0000' : '(000) 0000'" -->
+                <h1 *ngIf="PhoneType=='celular'">{{dialedNumber | mask: '(000) 000-0000'}}</h1>
+                <h1 *ngIf="PhoneType=='local'">{{dialedNumber | mask: '(000) 0000'}}</h1>
+                <h1 *ngIf="PhoneType=='internacional'">{{dialedNumber}}</h1>
+                <p class="text-llamando">{{ callTime }}</p>
+
+
+                <ion-avatar>
+                    <ion-img src="../assets/contacto.png"></ion-img>
+                </ion-avatar>
+
+                <ion-row class="ion-margin-top ion-padding-top">
+                    <ion-col size="4">
+                        <!-- <ion-icon name="add"></ion-icon>
+                        Añadir llamada -->
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <!-- <ion-icon name="pause"></ion-icon>
+                        Poner llamada en espera -->
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <!-- <ion-icon name="bluetooth"></ion-icon>
+                        Bluetooth -->
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4" (click)="toggleSound()">
+                        <ion-icon name="{{ this.speakerCall ? 'volume-high' : 'volume-off'}}"></ion-icon>
+                        Altavoz
+                    </ion-col>
+
+                    <ion-col size="4" (click)="toggleMute()">
+                        <ion-icon name="{{ this.mutedCall ? 'mic' : 'mic-off'}}"></ion-icon>
+                        Silencio
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-icon name="keypad" (click)="tmf()"></ion-icon>
+                        Teclado
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="ion-margin-top ion-padding-top">
+                    <ion-col size="4" offset="4">
+                        <ion-button id="call_button" (click)="endCall()">
+                            <ion-icon name="call"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-content *ngIf="activeTmf" class="activetmf bg" [fullscreen]="true">
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-text-center" size="10" offset="1">
+
+                <h1 class="dialTextbox">{{dialedNumber}}{{dialDTMF}}</h1>
+
+                <ion-row id="teclado-tmf">
+                    <ion-col size="4">
+
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('1')">
+                            <div>
+                                <label>1</label>
+                                <ion-icon name="recording"></ion-icon>
+                            </div>
+                        </ion-button>
+
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('2')">
+                            <div>
+                                <label>2</label> ABC
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('3')">
+                            <div>
+                                <label>3</label> DEF
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('4')">
+                            <div>
+                                <label>4</label> GHI
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('5')">
+                            <div>
+                                <label>5</label> JKL
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('6')">
+                            <div>
+                                <label>6</label> MNO
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('7')">
+                            <div>
+                                <label>7</label> PQRS
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('8')">
+                            <div>
+                                <label>8</label> TUV
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('9')">
+                            <div>
+                                <label>9</label> WXYZ
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('*')">
+                            <div>
+                                <label>*</label>
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('0')">
+                            <div>
+                                <label>0</label> +
+                            </div>
+                        </ion-button>
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-button fill="outline" color="light" shape="round" class="number_button" (click)="dial('#')">
+                            <div>
+                                <label>#</label>
+                            </div>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-col size="4">
+                    <ion-button fill="clear" id=call_button (click)="cerrar()">
+                        <ion-icon slot="icon-only" name="close"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
